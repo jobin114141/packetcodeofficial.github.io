@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      form, table {
+        margin-top: 20px;
+        width: 80%;
+      }
+      body {
+        background-color: #f8f9fa;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+      h1 {
+        color: #343a40;
+        margin-top: 50px;
+        margin-bottom: 30px;
+      }
+      
+      form {
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+      }
+      
+      table {
+        margin-top: 50px;
+        width: 100%;
+        border-collapse: collapse;
+      }
+      
+      table th, table td {
+        text-align: center;
+        vertical-align: middle;
+      }
+      
+      table th {
+        background-color: #343a40;
+        color: #fff;
+        padding: 10px;
+      }
+      
+      table td {
+        background-color: #fff;
+        color: #343a40;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+      
+      input[type="text"], select, input[type="number"] {
+        padding: 10px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      
+      input[type="submit"] {
+        background-color: #343a40;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      
+      input[type="submit"]:hover {
+        background-color: #0d6efd;
+      }
+      
+            
+  </style>
+</head>
+<body>
+    <h1> Car Upload Page</h1>
+    <div class="container">
+
+    <form action="admin_car_upload"  method="post">
+        {% csrf_token %}
+        <label for="admin_car_upload">Car Name:</label>
+        <input type="text" id="car_name" name="car_name" required>
+        <br><br>
+        <label for="car_model">Car Model:</label>
+        <input type="text" id="car_model" name="car_model" required>
+        <br><br>
+        <label for="yard_location">Yard Location:</label>
+        <select id="yard_location" name="yard_location" required>
+          <option value="">Choose a location</option>
+          <option value="kasargod">Kasargod</option>
+          <option value="malapuram">Malapuram</option>
+          <option value="kozhikode">Kozhikode</option>
+          <option value="alapuzha">Alapuzha</option>
+          <option value="ekm">Ernakulam</option>
+          <option value="thrissure">Thrissur</option>
+          <option value="thodupuzha">Thodupuzha</option>
+          <option value="idikki">Idikki</option>
+          <option value="kottayam">Kottayam</option>
+        </select>
+        <br><br>
+        <label for="min_amount">Min Amount:</label>
+        <input type="number" id="min_amount" name="min_amount" required>
+        <br><br>
+        <input type="submit" value="Upload">
+      </form>
+
+      <table>
+        <tr>
+          <th>Car Name</th>
+          <th>Car Model</th>
+          <th>Yard Location</th>
+          <th>Min Amount</th>
+          
+        </tr>
+
+
+        {% for car in cars %}
+          <tr>
+            <td>{{ car.car_name }}</td>
+            <td>{{ car.car_model }}</td>
+            <td>{{ car.yard_name }}</td>
+            <td>{{ car.min_amount }}</td>
+
+          </tr>
+        {% endfor %}
+      </table>
+            <!-- Existing code here -->
+    </div>
+</body>
+</html>

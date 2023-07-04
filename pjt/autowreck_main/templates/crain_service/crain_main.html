@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pending Delivery</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styles for the page */
+    
+        /* Add a background color to the body */
+		body {
+            background-image: url('https://images.pexels.com/photos/911738/pexels-photo-911738.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); /* Replace with the URL of your background image */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+          }
+    
+        /* Add a custom color to the table headers */
+        .table th {
+            background-color: #17a2b8;
+            color: #fff;
+        }
+    
+        /* Add a custom color to the table rows */
+        .table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    
+        /* Add a custom color to the buttons */
+        .btn-primary {
+            background-color: #17a2b8;
+            border-color: #17a2b8;
+        }
+    
+        /* Add a custom color to the links */
+        a {
+            color: #17a2b8;
+        }
+    
+        /* Add a custom color to the headings */
+        h1, h2, h3, h4, h5, h6 {
+            color: #333;
+        }
+        
+        /* Additional custom colors */
+        
+        /* Add a custom color to text */
+        p {
+            color: #6c757d;
+        }
+        
+        /* Add a custom color to secondary headings */
+        h2, h3 {
+            color: #007bff;
+        }
+        
+        /* Add a custom color to success messages */
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        
+        /* Add a custom color to warning messages */
+        .alert-warning {
+            color: #856404;
+            background-color: #fff3cd;
+            border-color: #ffeeba;
+        }
+        
+        /* Add a custom color to error messages */
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        
+    </style>
+    
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Pending Delivery</h1>
+        <hr>
+
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped table-hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Car Name</th>
+                            <!-- <th>Car Number</th> -->
+                            <th>Contact Number</th>
+                            <th>Yard Name</th>
+                            <th>Drop-out Location</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for list in booking %}
+                            <tr>
+                                <td>{{list.car_name}}</td>
+                                <!-- <td>{{list.car_number}}</td> -->
+                                <td>{{list.contact_number}}</td>
+                                <td>{{list.yard_name}}</td>
+                                <td>{{list.drop_out_location}}</td>
+                                <td>
+                                    {% if not busy %}
+                                        <form method="post">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <label for="staring_km">Starting KM:</label>
+                                                <input type="text" class="form-control" id="staring_km" name="staring_km" required>
+                                            </div>
+                                            <input type="hidden" name="id" value="{{ list.id }}">
+                                            <button type="submit" class="btn btn-primary">Start Delivery</button>
+                                        </form>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+
+
+
+
+
+
+
+    
+    <div class="card bg-light mb-3">
+        <div class="card-header">
+          <h3 class="mb-0">ON GOING</h3>
+        </div>
+        <div class="card-body">
+          {% if busy %}
+            <div class="row">
+              {% for busy_item in busy %}
+                <div class="col-md-6 mb-4">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ busy_item.car_name }}</h5>
+                      <p class="card-text">Car Location: {{ busy_item.yard_name }}</p>
+                      <p class="card-text">Drop Out Location: {{ busy_item.drop_out_location }}</p>
+                      <p class="card-text">Owner Contact Number: {{ busy_item.contact_number }}</p>
+                      <p class="card-text">Crain Starting KM Reading: {{ busy_item.staring_km }}</p>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <p>NO ON-GOING DELIVERY</p>
+          {% endif %}
+        </div>
+        {% if busy %}
+          <div class="card-footer text-center">
+            <a href="Start" class="btn btn-lg btn-danger">CLOSING</a>
+          </div>
+        {% endif %}
+      </div>
+      
+      
+</body>
+</html>

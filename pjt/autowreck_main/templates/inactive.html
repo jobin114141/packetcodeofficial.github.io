@@ -1,0 +1,27 @@
+
+  <h2>new registrations </h2>
+  <table>
+    <tr>
+      <th>Customer Name  |</th>
+      <th>Phone Nm  |</th>
+      <th>District|</th>
+      <th>Postion</th>
+      <th>Action</th>
+    </tr>
+    {% for customer in customers %}
+      <tr>
+        <td>{{ customer.username }}</td>
+        <td>{{ customer.phone }}</td>
+        <td>{{ customer.district }}</td>
+        <td>{{ customer.type }}</td>
+        <td>
+          <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="customer_id" value="{{ customer.id }}">
+            <input type="submit" value="approve">
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+

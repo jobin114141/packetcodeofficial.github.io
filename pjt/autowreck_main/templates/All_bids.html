@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All bids</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    /* add custom styles here */
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    h1 {
+      margin: 2rem 0 1rem;
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      color: #007bff;
+    }
+
+    table {
+      width: 100%;
+      margin: 2rem 0;
+      border-collapse: collapse;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th {
+      padding: 1rem 0.5rem;
+      font-weight: bold;
+      text-align: left;
+      background-color: #007bff;
+      color: #fff;
+      border-bottom: 2px solid #ccc;
+    }
+
+    td {
+      padding: 0.75rem 0.5rem;
+      vertical-align: middle;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .table__title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    .table__cell {
+      font-weight: normal;
+      color: #555;
+    }
+
+    .table__button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .table__button:hover {
+      background-color: #0062cc;
+    }
+
+    .table__button--delete {
+      background-color: #dc3545;
+    }
+
+    .table__button--delete:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+  <h1>All bids</h1>
+<table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+      <tr>
+        <th>Car Name</th>
+        <th>user Name</th>  
+        <th>Bid amount</th>   
+        <th>phone number</th>  
+        <th></th>
+      </tr>
+      {% for i in all %}  
+    </thead>
+
+
+    <tbody>
+      <tr>
+        <td>
+          <div class="d-flex align-items-center">
+            <div class="ms-3">
+              <p class="fw-bold mb-1">{{i.car_name}}</p>
+            
+            </div>
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{i.user_name}}</p>
+        </td>
+        <td>      
+            <p class="fw-normal mb-1">{{i.bid_amount}}</p>  
+        </td>
+        <td>      
+            <p class="fw-normal mb-1">{{i.phone}}</p>  
+        </td>
+
+
+        <td>
+
+
+        </td>
+
+    </tbody>
+
+    {% endfor %}
+  </table>
+
+</body>
+</html>
+
+

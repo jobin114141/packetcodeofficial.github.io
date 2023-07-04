@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Admin Page</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .btn-primary {
+            background-color: #3f51b5;
+            border-color: #3f51b5;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 10px 30px;
+        }
+        .btn-primary:hover {
+            background-color: #303f9f;
+            border-color: #303f9f;
+        }
+        .btn-secondary {
+            background-color: #ff5722;
+            border-color: #ff5722;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 10px 30px;
+        }
+        .btn-secondary:hover {
+            background-color: #e64a19;
+            border-color: #e64a19;
+        }
+        .btn-success {
+            background-color: #4caf50;
+            border-color: #4caf50;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 10px 30px;
+        }
+        .btn-success:hover {
+            background-color: #388e3c;
+            border-color: #388e3c;
+        }
+        .btn-danger {
+            background-color: #f44336;
+            border-color: #f44336;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 10px 30px;
+        }
+        .btn-danger:hover {
+            background-color: #d32f2f;
+            border-color: #d32f2f;
+        }
+
+
+        body {
+            background-image: url("https://images.unsplash.com/photo-1526726538690-5cbf956ae2fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+            background-size: cover;
+        }
+
+
+
+    </style>
+</head>
+<body class="container">
+
+    <h1 class="mt-4 text-center">Welcome to the Admin Page</h1>
+
+    <div class="row mt-4 justify-content-center">
+     
+        <div class="col-sm-6 col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Upload Cars</h5>
+                    <a href="admin_car_upload" class="btn btn-primary">Upload Car</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Remove cars</h5>
+                    <a href="remove_car" class="btn btn-primary">remove</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Sold cars</h5>
+                    <a href="closed_deals" class="btn btn-primary">Close the deal</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6 col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Recovery van Driver Registraion</h5>
+                    <a href="craindriver_reg" class="btn btn-primary">Register</a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-sm-6 col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Remove a users</h5>
+                    <a href="manager_admin_viewpage" class="btn btn-primary">View List</a>
+                </div>
+            </div>
+        </div>
+    
+
+
+
+        <div class="col-sm-6 col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">New Inspection Team Registraion</h5>
+                    <a href="i_reg" class="btn btn-primary">Register  </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">All bids</h5>
+                    <a href="All_bids" class="btn btn-primary">View details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">TodaysDeals</h5>
+                    <a href="admin_sail_details" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div> 
+        
+        
+        <div class="col-sm-6 col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Recovery Service Details</h5>
+                    <a href="crain_delliverd" class="btn btn-primary">View </a>
+                </div>
+            </div>
+        </div>
+
+
+
+        
+    </body>
+</html>

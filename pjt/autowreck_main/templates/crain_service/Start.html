@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Price</title>
+
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Add custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        h3 {
+            color: #17a2b8;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 30px;
+        }
+        label {
+            color: #212529;
+            font-weight: bold;
+        }
+        input[type=number] {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        button[type=submit] {
+            background-color: #17a2b8;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button[type=submit]:hover {
+            background-color: #138496;
+        }
+        .result {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        .result h5 {
+            color: #17a2b8;
+            font-weight: bold;
+            margin-top: 0;
+        }
+        .result p {
+            margin-bottom: 0;
+        }
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+
+                <h3>Calculate Price</h3>
+
+                <form action="Start" method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label for="end-km">Ending Kilometer:</label>
+                        <input type="number" class="form-control" id="end-km" name="end_km" min="{{ temp1.staring_km|add:1 }}",required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Calculate</button>
+                </form>
+
+                {% if price %}
+                    <div class="result">
+                        <h5>Details</h5>
+                        <p>Starting KM Reading: {{ temp1.staring_km }}</p>
+                        <p>Ending KM Reading: {{ int_end_km }}</p>
+                        <p>Total Kilometers: {{ total_km }}</p>
+                        <p class="price">Price: {{ price }}</p>
+
+                        <form action="payment" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="close" value="1">
+        <button type="submit" class="btn btn-danger">Accepted Cash and Close</button>
+      
+    </form>
+    {% endif %}
+
+    
+</body>
+</html>

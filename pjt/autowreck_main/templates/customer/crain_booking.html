@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Car Booking</title>
+  </head>
+  <body>
+    <h1>Car Booking Form</h1>
+    <form action="crain_booking" method="POST">
+        {% csrf_token %}
+
+      <label for="car-model">Car Name:</label>
+      <input type="text" id="car-number" name="car_name"><br><br>
+
+      <label for="car-number">Car Number:</label>
+      <input type="text" id="car-number" name="car_number"><br><br>
+
+      <label for="contact-number">Contact number:</label>
+      <input type="text" id="car-number" name="contact_number"><br><br>
+
+      <label for="yard_name">yard_name:</label>
+      <select id="yard_name" name="yard_name" required>
+        <option value="">Choose a location</option>
+        <option value="kasargod">Kasargod</option>
+        <option value="malapuram">Malapuram</option>
+        <option value="kozhikode">Kozhikode</option>
+        <option value="alapuzha">Alapuzha</option>
+        <option value="ekm">Ernakulam</option>
+        <option value="thrissure">Thrissur</option>
+        <option value="thodupuzha">Thodupuzha</option>
+        <option value="idikki">Idikki</option>
+        <option value="kottayam">Kottayam</option>
+      </select><br><br>
+      
+
+      <label for="drop_out_location">drop_out_location:</label>
+      <select id="drop_out_location" name="drop_out_location" required>
+        <option value="">Choose a location</option>
+        <option value="kasargod">Kasargod</option>
+        <option value="malapuram">Malapuram</option>
+        <option value="kozhikode">Kozhikode</option>
+        <option value="alapuzha">Alapuzha</option>
+        <option value="ekm">Ernakulam</option>
+        <option value="thrissure">Thrissur</option>
+        <option value="thodupuzha">Thodupuzha</option>
+        <option value="idikki">Idikki</option>
+        <option value="kottayam">Kottayam</option>
+      </select><br><br>
+      
+      <button type="submit" name="book">Book</button>
+    </form>
+  </body>
+</html>

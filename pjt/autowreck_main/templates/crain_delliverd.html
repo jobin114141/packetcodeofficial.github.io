@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU0Xw704+h835Lr+JdCScyoLHQSTi6UksdQRVvoxMfooAo"
+        crossorigin="anonymous">
+  <title>Car List</title>
+  <style>
+    /* Custom CSS */
+    body {
+      background-color: #f8f9fa;
+    }
+
+    h1 {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    table {
+      width: 80%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    th,
+    td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    th {
+      background-color: #17a2b8;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      background-color: #17a2b8;
+      color: #fff;
+      border: none;
+    }
+
+    .btn:hover {
+      background-color: #138496;
+    }
+
+    .btn-danger {
+      background-color: #dc3545;
+    }
+
+    .btn-danger:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Delivered cars</h1>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Car</th>
+          <!-- <th>Car number</th> -->
+          <th>Customer contact number</th>
+          <th>Pick up from</th>
+          <th>Drop out </th>
+          <th>Total KM</th>
+          <th>Amount</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in all %}
+        <tr>
+          <td>{{ i.car_name }}</td>
+          <!-- <td>{{ i.car_number }}</td> -->
+
+          <td>{{ i.contact_number }}</td>
+          <td>{{ i.yard_name }}</td>
+          <td>{{ i.drop_out_location }}</td>
+          <td>{{ i.total_km }}</td>
+          <td>{{ i.price }}</td>
+          
+        
+
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+          integrity="sha384

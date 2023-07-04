@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Load Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+          crossorigin="anonymous">
+    
+    <title>Tables Example</title>
+    
+    <style>
+        /* Override Bootstrap styles */
+        
+        /* Style the table headers */
+        table th {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            border-color: #dee2e6;
+        }
+        
+        /* Style the table cells */
+        table td {
+            text-align: center;
+            font-size: 14px;
+            border-color: #dee2e6;
+        }
+        
+        /* Style the table rows */
+        table tbody tr:nth-of-type(odd) {
+            background-color: #f8f9fa;
+        }
+        
+        /* Add some padding to the table cells */
+        table td, table th {
+            padding: 8px;
+        }
+        
+        /* Set the table width */
+        table {
+            width: 100%;
+        }
+        
+        /* Add some margin to the table wrapper divs */
+        .table-wrapper {
+            margin: 20px;
+        }
+        
+        /* Set the width of each table wrapper div */
+        .table-wrapper {
+            width: calc(50% - 40px); /* 50% - 2 * margin */
+            float: left;
+        }
+        
+        /* Clear the float after the tables */
+        .clear {
+            clear: both;
+        }
+        
+        /* Style the alternate table rows */
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #dee2e6;
+        }
+        
+        /* Style the hover state for table rows */
+        .table-hover tbody tr:hover {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Table 1 -->
+    <div class="table-wrapper">
+        <h3>Customers</h3>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                  <th style="background-color: #28a745; border-color: #dee2e6;">Customer Name</th>
+                  <th style="background-color: #28a745; border-color: #dee2e6;">District</th>
+                  <th style="background-color: #28a745; border-color: #dee2e6;">Phone</th>
+                  <th style="background-color: #28a745; border-color: #dee2e6;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for customer in c_user %}
+                  <tr>
+                    <td>{{ customer.username }}</td>             
+                    <td>{{ customer.district }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>
+                        <form action="manager_admin_viewpage" method="post">
+                          {% csrf_token %}
+                          <input type="hidden" name="user_id" value="{{ customer.id }}">
+                          <button type="submit" class="btn btn-danger">Remove</button>
+                        </form>
+                      </td>
+                  </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="table-wrapper">
+      <h3>Inspection Team</h3>
+      <table class="table table-striped table-bordered table-hover">
+          <thead>
+              <tr>
+                <th style="background-color: #28a745; border-color: #dee2e6;">Customer Name</th>
+                <th style="background-color: #28a745; border-color: #dee2e6;">District</th>
+                <th style="background-color: #28a745; border-color: #dee2e6;">Phone</th>
+                <th style="background-color: #28a745; border-color: #dee2e6;"></th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for inspection_team in i_user %}
+                <tr>
+                  <td>{{ inspection_team.username }}</td>             
+                  <td>{{ inspection_team.district }}</td>
+                  <td>{{ inspection_team.phone }}</td>
+                  <td>
+                    <form action="manager_admin_viewpage" method="post">
+                      {% csrf_token %}
+                      <input type="hidden" name="user_id" value="{{ inspection_team.id }}">
+                      <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                  </td>
+                </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+      <h3>Crain Drivers</h3>
+      <table class="table table-striped table-bordered table-hover">
+          <thead>
+              <tr>
+                <th style="background-color: #28a745; border-color: #dee2e6;">Customer Name</th>
+                <th style="background-color: #28a745; border-color: #dee2e6;">District</th>
+                <th style="background-color: #28a745; border-color: #dee2e6;">Phone</th>
+                <th style="background-color: #28a745; border-color: #dee2e6;"></th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for inspection_team in crain %}
+                <tr>
+                  <td>{{ inspection_team.username }}</td>             
+                  <td>{{ inspection_team.district }}</td>
+                  <td>{{ inspection_team.phone }}</td>
+                  <td>
+                    <form action="manager_admin_viewpage" method="post">
+                      {% csrf_token %}
+                      <input type="hidden" name="user_id" value="{{ inspection_team.id }}">
+                      <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                  </td>
+                </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+
+  </div>
+
+
+
+
+    <!-- Table 2 -->
+    <div class="table-wrapper">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
